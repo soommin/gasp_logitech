@@ -21,7 +21,7 @@
 }
 
 .scroll-content > section:nth-child(even) {
-  background: red;
+  /* background: red; */
 }
 
 .posNum {
