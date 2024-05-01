@@ -17,6 +17,11 @@
 }
 
 /* Header Style */
+
+#header {
+  background: #000;
+}
+
 #header,
 #menu .menu_header {
   transition: all 0.5s;
@@ -1023,8 +1028,8 @@
 
 #section07 .side {
   height: 766px;
-  width: 90%;
   /* width: calc(100% + 38px); */
+  width: 90%;
   position: absolute;
   top: 120px;
   left: 50%;
@@ -1063,7 +1068,7 @@
 #section08 .visual_container .title > div {
   transform: translateY(35px);
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 
 #section08.on .visual_container .title > div {
@@ -1309,8 +1314,7 @@
   border: 1px solid #fff;
 }
 
-/* page03 style */
-
+/* page 03 style */
 #section10 .page03 {
   position: relative;
   background: black;
@@ -1318,7 +1322,6 @@
 
 #section10 .page03 .side .left {
   position: absolute;
-
   top: 123px;
   left: 63px;
 }

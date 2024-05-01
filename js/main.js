@@ -334,7 +334,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  // section 6 화면 위치할 때 글자 슬라이드 업
+  // 섹션 6 화면 위치할 때 글자 슬라이드 업
   gsap.to('#section06', {
     scrollTrigger: {
       trigger: '#section06',
@@ -345,7 +345,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  // section 6 화면 위치시 스크롤 고정
+  // 섹션 6 화면 위치 시 스크롤 고정
   gsap.to('.fix-this-6', {
     scrollTrigger: {
       trigger: '.trigger-this-6',
@@ -362,7 +362,7 @@ window.addEventListener('DOMContentLoaded', function () {
     trigger: '#section06',
     start: 'top top',
     end: 'bottom bottom',
-    scrub: 1,
+    scrub: true,
     // markers: true,
   });
 
@@ -370,7 +370,7 @@ window.addEventListener('DOMContentLoaded', function () {
   sec06.to('#section06 .side .right', { x: 1000 }, 0);
   sec06.to('#section06 .underbar', { y: 1000 }, 0);
 
-  //secion 06 chapter image move animation
+  // section 06 chapter image move animation
   gsap.to('#section06 .visual_container .chapter', {
     x: 480,
     scrollTrigger: {
@@ -382,7 +382,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //secion 06 square height 0 animation
+  // section 06 sqare height 0 animation
   gsap.to('#section06 .visual_container .square > div', {
     height: 0,
     scrollTrigger: {
@@ -394,7 +394,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //secion 06 square height 0 animation
+  // section 06 sqare height 0 animation
   gsap.to('#section06 .visual_container .title', {
     x: 180,
     scrollTrigger: {
@@ -406,7 +406,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //secion 06 headset move animation
+  // section 06 headset move animation
   gsap.to('#section06 .visual_container .headset', {
     x: 1800,
     scrollTrigger: {
@@ -418,7 +418,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //secion 06 title text scale up animation
+  // section 06 title text scale up animation
   gsap.to('#title_svg', {
     scale: 60,
     y: 2400,
@@ -454,7 +454,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //section 07 fix on scroll
+  // section 07 fix on scroll
   gsap.to('.fix-this-7', {
     scrollTrigger: {
       trigger: '.trigger-this-7',
@@ -466,7 +466,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //section 07 video scale down animation
+  // section 07 video scale down animation
   gsap.to('#section07 .video', {
     scale: 0.8,
     y: 15,
@@ -479,12 +479,12 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //section 07 side image remove class on
+  // section 07 side image remove class on
   gsap.to('#section07 .side', {
     scrollTrigger: {
       trigger: '#section07',
-      start: '800 top',
-      end: '2500 bottom',
+      start: '1800 top',
+      end: 'bottom bottom',
       scrub: true,
       // markers: true,
       onEnter: () => {
@@ -492,7 +492,7 @@ window.addEventListener('DOMContentLoaded', function () {
         $('#section07 .side').removeClass('on');
       },
       // onEnterBack: () => {
-      //   //스크롤이 트리거 요소 시작 위치에 역방향으로 도달했을 때
+      //   // 스크롤이 트리거 요소의 사작 위치에 역방향으로 도달했을 때
       //   $('#section07 .side').addClass('on');
       // },
       // onLeave: () => {
@@ -506,7 +506,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //section 08,09 title text slide up animation
+  // section 08, 09 title text slide up animation
   function section0809Title(section, position) {
     gsap.to(section, {
       scrollTrigger: {
@@ -564,7 +564,7 @@ window.addEventListener('DOMContentLoaded', function () {
     },
   });
 
-  //section 10 horizontal scroll animation
+  // section 10 horizontal scroll animation
   const section10pages = document.querySelectorAll('#section10 .page');
   // console.log(section10pages);
   let sec10_total = 0;
@@ -586,4 +586,78 @@ window.addEventListener('DOMContentLoaded', function () {
       // markers: true,
     },
   });
+
+  const video10 = document.querySelector('#sc10_video');
+  const video11 = document.querySelector('#sc11_video');
+
+  function playVideoSec10(top, vidElmt) {
+    gsap.to('#section10', {
+      scrollTrigger: {
+        trigger: '#section10',
+        start: `${top} top`,
+        scrub: true,
+        // markers: true,
+        onEnter: () => {
+          vidElmt.play();
+        },
+
+        onLeaveBack: () => {
+          vidElmt.currentTime = 0; // 비디오 재생 시간을 0으로 되돌림
+          vidElmt.pause();
+        },
+      },
+    });
+  }
+
+  playVideoSec10('-500', video10);
+  playVideoSec10('1200', video11);
+
+  // jacascript add or remove class :
+  // abc.classList.add('on') or abc.classList.remove('on')
+
+  // select element :
+  // document.querySelector('.abc');
+
+  // jQuery add or remove class :
+  // abc.addClass('on') or abc.removeClass('on')
+
+  //select element :
+  // $('.abc')
+
+  function animateTextSec10(top, elmt) {
+    gsap.to(elmt, {
+      scrollTrigger: {
+        trigger: '#section10',
+        start: `${top} top`,
+        scrub: true,
+        // markers: true,
+        onEnter: () => {
+          $(elmt).addClass('on');
+        },
+
+        onLeaveBack: () => {
+          $(elmt).removeClass('on');
+        },
+      },
+    });
+  }
+
+  animateTextSec10('400', '#section10 .page03');
+  animateTextSec10('2800', '#section10 .page05 .container01 .title');
+  animateTextSec10('3500', '#section10 .page05 .container02 .title');
+  animateTextSec10('4200', '#section10 .page05 .container03 .title');
+
+  function scrollMouse(evenOdd, height) {
+    gsap.to(`#section10 .page03 .mouse ${evenOdd}`, {
+      y: height * 2,
+      scrollTrigger: {
+        trigger: '#section10',
+        start: '200 top',
+        scrub: true,
+        // markers: true,
+      },
+    });
+  }
+  scrollMouse('.odd', -innerHeight);
+  scrollMouse('.even', innerHeight);
 });
